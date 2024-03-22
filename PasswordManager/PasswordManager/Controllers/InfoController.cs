@@ -2,6 +2,8 @@
 
 namespace PasswordManager.Controllers
 {
+    [ApiController]
+    [Route("api/[controller]s")]
     public class InfoController : BaseController
     {
     }

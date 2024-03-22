@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-sm navbar-light fixed-top">
+  <div class="buttons d-flex justify-content-end">
+    <div class="ml-auto p-2 nav-bar-right">
+      <button *ngIf="userService.currentUser == null"
+              routerLink="/login"
+              class="btn btn-outline-success"
+              type="button">
+        Вход
+      </button>
+      <button *ngIf="userService.currentUser == null"
+              routerLink="/registration"
+              class="btn btn-outline-primary"
+              type="button">
+        Регистриране
+      </button>
+
+    </div>
+  </div>
+  <div class="navbar-collapse justify-content-end">
+
+    <button *ngIf="userService.currentUser != null"
+            (click)="logout()"
+            class="btn-logout btn btn-danger btn-center-text"
+            id="btn">
+      Изход
+    </button>
+  </div>
+</nav>

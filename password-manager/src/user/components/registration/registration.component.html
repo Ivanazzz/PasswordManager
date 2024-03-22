@@ -1,0 +1,64 @@
+<div class="container register-form">
+    <h1>Регистриране</h1>
+    <div class="form-group">
+      <label for="username">
+        <span class="important">*</span>
+        Потребителско име:
+      </label>
+      <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="userDto.username"
+        id="username"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="email">
+        <span class="important">*</span>
+        Имейл:
+      </label>
+      <input
+        type="email"
+        class="form-control"
+        [(ngModel)]="userDto.email"
+        id="email"
+        required
+      />
+    </div>
+    <div class="form-group">
+        <label for="password">
+          <span class="important">*</span>
+          Парола:
+        </label>
+        <input
+          type="password"
+          class="form-control"
+          [(ngModel)]="userDto.password"
+          id="password"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="passwordConfirmation">
+          <span class="important">*</span>
+          Потвърждаване на парола:
+        </label>
+        <input
+          type="password"
+          class="form-control"
+          [(ngModel)]="userDto.passwordConfirmation"
+          id="passwordConfirmation"
+          required
+        />
+      </div>
+      <div class="btn-wrapper">
+        <button
+          (click)="onSubmit()"
+          class="btn btn-success"
+          [disabled]="!isFormValid()"
+        >
+          Завърши
+        </button>
+      </div>
+  </div>

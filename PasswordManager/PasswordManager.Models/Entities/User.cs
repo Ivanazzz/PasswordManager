@@ -15,7 +15,7 @@ namespace PasswordManager.Models.Entities
 
         public string PasswordSalt { get; set; }
 
-        public bool IsActive { get; set; }
+        public bool IsDeleted { get; set; }
 
         public ICollection<Info> Infos = new List<Info>();
     }
@@ -45,9 +45,9 @@ namespace PasswordManager.Models.Entities
                 .IsRequired();
 
             builder
-                .Property(b => b.IsActive)
+                .Property(b => b.IsDeleted)
                 .IsRequired()
-                .HasDefaultValue(true);
+                .HasDefaultValue(false);
         }
     }
 }

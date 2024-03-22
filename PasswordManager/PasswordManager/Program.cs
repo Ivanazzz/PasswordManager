@@ -1,6 +1,7 @@
 
 using Microsoft.EntityFrameworkCore;
 using PasswordManager.Models;
+using SchoolRegisterApp.Middlewares;
 
 namespace PasswordManager
 {
@@ -14,17 +15,21 @@ namespace PasswordManager
             builder.Services.AddDbContext<PasswordManagerDbContext>(options =>
                 options.UseNpgsql(builder.Configuration.GetConnectionString("DBConnection")));
 
-            builder.Services.AddControllers();
-
-            builder.Services.AddPasswordManagerServices();
             builder.Services.ConfigureJwtAuthenticationServices(builder.Configuration);
+            builder.Services.AddPasswordManagerServices();
+
+            builder.Services.AddControllers();
 
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            builder.Services.AddAuthorization();
+
             builder.Services.AddHttpContextAccessor();
 
             var app = builder.Build();
+
+            app.UseMiddleware<ExceptionHandlingMiddleware>();
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
