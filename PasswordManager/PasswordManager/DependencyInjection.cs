@@ -11,8 +11,8 @@ namespace PasswordManager
         public static IServiceCollection AddPasswordManagerServices(this IServiceCollection services)
         {
             services
-                .AddScoped<IUserService, UserService>()
-                .AddScoped<IInfoService, InfoService>();
+                .AddScoped<IUserRepository, UserRepository>()
+                .AddScoped<IInfoRepository, InfoRepository>();
 
             return services;
         }

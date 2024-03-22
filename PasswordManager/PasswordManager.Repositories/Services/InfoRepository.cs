@@ -2,7 +2,7 @@
 
 namespace PasswordManager.Repositories.Services
 {
-    public class InfoService : IInfoService
+    public class InfoRepository : IInfoRepository
     {
     }
 }

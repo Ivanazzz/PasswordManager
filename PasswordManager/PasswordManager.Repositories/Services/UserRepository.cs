@@ -6,7 +6,7 @@ using System.Security.Cryptography;
 
 namespace PasswordManager.Repositories.Services
 {
-    public class UserService : IUserService
+    public class UserRepository : IUserRepository
     {
         private readonly IMapper mapper;
 
@@ -14,7 +14,7 @@ namespace PasswordManager.Repositories.Services
         const int iterations = 350000;
         HashAlgorithmName hashAlgorithm = HashAlgorithmName.SHA512;
 
-        public UserService(IMapper mapper)
+        public UserRepository(IMapper mapper)
         {
             this.mapper = mapper;
         }

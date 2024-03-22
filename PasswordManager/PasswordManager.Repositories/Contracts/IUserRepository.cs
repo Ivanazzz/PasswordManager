@@ -3,7 +3,7 @@ using PasswordManager.Models.Entities;
 
 namespace PasswordManager.Repositories.Contracts
 {
-    public interface IUserService
+    public interface IUserRepository
     {
         Task RegisterAsync(UserRegistrationDto userRegistrationDto);
 
