@@ -2,7 +2,7 @@
 
 namespace PasswordManager.Controllers
 {
-    public class InfoController : Controller
+    public class InfoController : BaseController
     {
     }
 }
