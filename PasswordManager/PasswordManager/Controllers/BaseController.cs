@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace PasswordManager.Controllers
 {
     [Authorize]
-    public class BaseController : Controller
+    public class BaseController : ControllerBase
     {
     }
 }

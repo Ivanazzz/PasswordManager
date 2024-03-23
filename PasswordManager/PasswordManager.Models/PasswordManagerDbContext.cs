@@ -19,6 +19,10 @@ namespace PasswordManager.Models
 
         public DbSet<Info> Infos { get; set; }
 
+        public DbSet<FriendRequest> FriendRequests { get; set; }
+
+        public DbSet<Friendship> Friendships { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
