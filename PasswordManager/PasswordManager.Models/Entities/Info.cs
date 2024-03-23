@@ -11,6 +11,8 @@ namespace PasswordManager.Models.Entities
 
         public string Password { get; set; }
 
+        public DateTime CreateDate { get; set; }
+
         public bool IsDeleted { get; set; }
 
         public int UserId { get; set; }
@@ -32,6 +34,10 @@ namespace PasswordManager.Models.Entities
 
             builder
                 .Property(b => b.Password)
+                .IsRequired();
+
+            builder
+                .Property(b => b.CreateDate)
                 .IsRequired();
 
             builder
