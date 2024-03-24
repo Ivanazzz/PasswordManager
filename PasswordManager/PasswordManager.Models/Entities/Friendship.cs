@@ -40,7 +40,7 @@ namespace PasswordManager.Models.Entities
 
             builder
                 .HasOne(friendship => friendship.FirstUser)
-                .WithMany(user => user.Friendships)
+                .WithMany()
                 .HasForeignKey(friendship => friendship.FirstUserId)
                 .OnDelete(DeleteBehavior.Restrict);
 

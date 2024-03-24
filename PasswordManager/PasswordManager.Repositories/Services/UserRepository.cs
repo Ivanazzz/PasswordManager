@@ -1,13 +1,12 @@
-﻿using AutoMapper;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-using PasswordManager.Models;
-using PasswordManager.Models.CustomExceptions;
-using PasswordManager.Models.Dtos;
-using PasswordManager.Models.Entities;
-using PasswordManager.Repositories.Contracts;
+﻿using Microsoft.EntityFrameworkCore;
 using System.Security.Cryptography;
 using System.Text;
+
+using PasswordManager.Models;
+using PasswordManager.Models.CustomExceptions;
+using PasswordManager.Models.Dtos.UserDtos;
+using PasswordManager.Models.Entities;
+using PasswordManager.Repositories.Contracts;
 
 namespace PasswordManager.Repositories.Services
 {

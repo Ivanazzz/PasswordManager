@@ -15,6 +15,8 @@ namespace PasswordManager.Models.Entities
 
         public bool IsDeleted { get; set; }
 
+        public bool IsShared { get; set; }
+
         public int UserId { get; set; }
 
         public User User { get; set; }
@@ -29,10 +31,6 @@ namespace PasswordManager.Models.Entities
                 .IsRequired();
 
             builder
-                .HasIndex(b => b.Website)
-                .IsUnique();
-
-            builder
                 .Property(b => b.Password)
                 .IsRequired();
 
@@ -42,6 +40,11 @@ namespace PasswordManager.Models.Entities
 
             builder
                 .Property(b => b.IsDeleted)
+                .IsRequired()
+                .HasDefaultValue(false);
+
+            builder
+                .Property(b => b.IsShared)
                 .IsRequired()
                 .HasDefaultValue(false);
 

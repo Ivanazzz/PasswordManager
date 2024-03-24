@@ -1,4 +1,4 @@
-﻿using PasswordManager.Models.Dtos;
+﻿using PasswordManager.Models.Dtos.UserDtos;
 using PasswordManager.Models.Entities;
 
 namespace PasswordManager.Repositories.Contracts

@@ -12,7 +12,8 @@ namespace PasswordManager
         {
             services
                 .AddScoped<IUserRepository, UserRepository>()
-                .AddScoped<IInfoRepository, InfoRepository>();
+                .AddScoped<IInfoRepository, InfoRepository>()
+                .AddScoped<IPasswordRepository, PasswordRepository>();
 
             return services;
         }

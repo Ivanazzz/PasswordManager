@@ -17,15 +17,11 @@ namespace PasswordManager.Models.Entities
 
         public bool IsDeleted { get; set; }
 
-        public ICollection<Info> MyInfos = new List<Info>();
+        public ICollection<Info> Infos { get; set; } = new List<Info>();
 
-        public ICollection<Info> SharedInfos = new List<Info>();
+        public ICollection<FriendRequest> SentFriendRequests { get; set; } = new List<FriendRequest>();
 
-        public ICollection<FriendRequest> SentFriendRequests = new List<FriendRequest>();
-
-        public ICollection<FriendRequest> ReceivedFriendRequests = new List<FriendRequest>();
-
-        public ICollection<Friendship> Friendships = new List<Friendship>();
+        public ICollection<FriendRequest> ReceivedFriendRequests { get; set; } = new List<FriendRequest>();
     }
 
     public class UserConfiguration : IEntityTypeConfiguration<User>

@@ -1,4 +1,4 @@
-﻿namespace PasswordManager.Models.Dtos
+﻿namespace PasswordManager.Models.Dtos.UserDtos
 {
     public class UserDto
     {

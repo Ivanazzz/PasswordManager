@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using PasswordManager.Models.Dtos;
+using PasswordManager.Models.Dtos.UserDtos;
 using PasswordManager.Models.Entities;
 using PasswordManager.Repositories.Contracts;
 using System.IdentityModel.Tokens.Jwt;

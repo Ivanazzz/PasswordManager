@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using PasswordManager.Models;
@@ -11,9 +12,11 @@ using PasswordManager.Models;
 namespace PasswordManager.Models.Migrations
 {
     [DbContext(typeof(PasswordManagerDbContext))]
-    partial class PasswordManagerDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240324102847_AddIsSharedToInfo")]
+    partial class AddIsSharedToInfo
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -104,6 +107,9 @@ namespace PasswordManager.Models.Migrations
 
                     b.HasIndex("UserId");
 
+                    b.HasIndex("Website")
+                        .IsUnique();
+
                     b.ToTable("Infos");
                 });
 
@@ -147,15 +153,15 @@ namespace PasswordManager.Models.Migrations
             modelBuilder.Entity("PasswordManager.Models.Entities.FriendRequest", b =>
                 {
                     b.HasOne("PasswordManager.Models.Entities.User", "Receiver")
-                        .WithMany("ReceivedFriendRequests")
+                        .WithMany()
                         .HasForeignKey("ReceiverId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("PasswordManager.Models.Entities.User", "Sender")
-                        .WithMany("SentFriendRequests")
+                        .WithMany()
                         .HasForeignKey("SenderId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Receiver");
@@ -185,21 +191,12 @@ namespace PasswordManager.Models.Migrations
             modelBuilder.Entity("PasswordManager.Models.Entities.Info", b =>
                 {
                     b.HasOne("PasswordManager.Models.Entities.User", "User")
-                        .WithMany("Infos")
+                        .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("User");
-                });
-
-            modelBuilder.Entity("PasswordManager.Models.Entities.User", b =>
-                {
-                    b.Navigation("Infos");
-
-                    b.Navigation("ReceivedFriendRequests");
-
-                    b.Navigation("SentFriendRequests");
                 });
 #pragma warning restore 612, 618
         }
