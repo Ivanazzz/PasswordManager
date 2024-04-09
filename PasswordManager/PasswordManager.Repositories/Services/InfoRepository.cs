@@ -44,6 +44,7 @@ namespace PasswordManager.Repositories.Services
             var info = new Info
             {
                 Website = infoDto.Website,
+                Username = infoDto.Username,
                 Password = infoDto.Password,
                 CreateDate = DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Utc),
                 UserId = user.Id
@@ -72,6 +73,7 @@ namespace PasswordManager.Repositories.Services
                 {
                     Id = i.Id,
                     Website = i.Website,
+                    Username= i.Username,
                     Password = i.Password,
                     CreateDate = i.CreateDate
                 })
@@ -99,6 +101,7 @@ namespace PasswordManager.Repositories.Services
                 {
                     Id = i.Id,
                     Website = i.Website,
+                    Username = i.Username,
                     Password = i.Password,
                     CreateDate = i.CreateDate
                 })
@@ -149,6 +152,7 @@ namespace PasswordManager.Repositories.Services
             var info = new Info
             {
                 Website = infoToShare.Website,
+                Username = infoToShare.Username,
                 Password = infoToShare.Password,
                 CreateDate = infoToShare.CreateDate,
                 UserId = friendId,
@@ -180,6 +184,7 @@ namespace PasswordManager.Repositories.Services
                 {
                     Id = i.Id,
                     Website = i.Website,
+                    Username = i.Username,
                     Password = i.Password,
                     CreateDate = i.CreateDate
                 });

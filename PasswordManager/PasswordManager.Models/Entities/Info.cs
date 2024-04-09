@@ -9,6 +9,8 @@ namespace PasswordManager.Models.Entities
 
         public string Website { get; set; }
 
+        public string Username { get; set; }
+
         public string Password { get; set; }
 
         public DateTime CreateDate { get; set; }
@@ -28,6 +30,10 @@ namespace PasswordManager.Models.Entities
         {
             builder
                 .Property(b => b.Website)
+                .IsRequired();
+
+            builder
+                .Property(b => b.Username)
                 .IsRequired();
 
             builder
