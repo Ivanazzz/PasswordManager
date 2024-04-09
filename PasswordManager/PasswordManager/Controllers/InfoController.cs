@@ -39,9 +39,9 @@ namespace PasswordManager.Controllers
             return Ok(sharedInfos);
         }
 
-        // Ivana
+        // Georgi
         [HttpGet("Sort")]
-        public async Task<IActionResult> GetMineSorted([FromQuery] SortingType type)
+        public async Task<IActionResult> GetMineSorted([FromQuery] int type)
         {
             string email = HttpContext.User.FindFirst(ClaimTypes.Email)?.Value;
 

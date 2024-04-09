@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.HttpLogging;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 
 using PasswordManager.Models;
@@ -163,9 +164,17 @@ namespace PasswordManager.Repositories.Services
             await context.SaveChangesAsync();
         }
 
-        // Ivana
-        public async Task<List<InfoGetDto>> SortMyInfos(string email, SortingType type)
+        // Georgi
+        public async Task<List<InfoGetDto>> SortMyInfos(string email, int typeAsInt)
         {
+            SortingType type = (SortingType)Enum.Parse(typeof(SortingType), typeAsInt.ToString());
+
+            if (type != SortingType.Ascending
+                && type != SortingType.Descending)
+            {
+                throw new NotFoundException("Невалиден формат за сортиране");
+            }
+
             var user = await context.Users
                 .AsNoTracking()
                 .SingleOrDefaultAsync(u => u.Email == email && u.IsDeleted == false);

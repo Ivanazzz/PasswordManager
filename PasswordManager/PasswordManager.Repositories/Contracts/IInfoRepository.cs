@@ -12,7 +12,7 @@ namespace PasswordManager.Repositories.Contracts
         Task<List<InfoGetDto>> GetSharedInfos(string email);
 
         // Ivana
-        Task<List<InfoGetDto>> SortMyInfos(string email, SortingType type);
+        Task<List<InfoGetDto>> SortMyInfos(string email, int typeAsInt);
 
         // Ivana
         Task AddInfo(string email, InfoAddDto infoDto);
